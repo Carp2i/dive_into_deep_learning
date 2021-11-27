@@ -153,3 +153,50 @@ Pandas是主角
 
 ### 向量
 向量可以视为元素值组成的列表
+
+
+## 2.4 微分 differential calculus
+
+拟合模型的任务--两个关键问题：
+1. 优化optimization：
+用模型拟合观测数据的过程；
+2. 泛化generalization:
+数学原理和实践者的智慧，能够指导我们生成出有效性超出用于训练的数据集本身的模型。
+
+### 导数与微分
+
+假设有一个函数$f:\mathbb{R}^n \rightarrow \mathbb{R}$
+
+$f$的 *导数* 被定义为
+$$
+f'(x)=\lim\limits_{h\to 0}\frac{f(x+h)-f(x)}{h},
+$$
+
+#### 导数的几个等价符号
+$$
+f'(x)=y'=\frac{dy}{dx}=\frac{df}{dx}=\frac{d}{dx}f(x)=Df(x)=D_xf(x),
+$$
+其中符号 $\frac{d}{dx}$ 和 $D$ 是微分运算符，表示*微分* 操作。
+
+![](https://pic.imgdb.cn/item/61a21e382ab3f51d912af548.jpg)
+
+导数反映，切线斜率
+
+### 偏导数
+
+设 $y=f(x_1,x_2,\cdots,x_n)$ 是一个具有$n$个变量的函数。$y$ 关于第 $i$ 个参数 $x_i$ 的偏导数为：
+
+$$
+\frac{\partial{y}}{\partial{x_i}} = \lim\limits_{h\to 0}\frac{f(x_1,\cdots,x_{i-1},x_i+h,x_{i+1},\cdots,x_n)-f(x_1,\cdots,x_i,\cdots,x_n)}{h}
+$$
+为了计算$\frac{\partial y}{\partial x_i}$
+
+**偏导数等价表示**
+
+$$
+\frac{\partial{y}}{\partial{x_i}}=\frac{\partial{f}}{\partial{x_i}}=f_{xi}=f_i=D_i f = D_{xi}f.
+$$
+
+![](https://pic.imgdb.cn/item/61a21fe52ab3f51d912b833d.jpg)
+
+![](https://pic.imgdb.cn/item/61a2200f2ab3f51d912b9233.jpg)
