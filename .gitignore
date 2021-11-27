@@ -1,2 +1,5 @@
 # 忽略.ipynb文件
 *.ipynb
+
+settings.json
+
