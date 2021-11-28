@@ -238,5 +238,11 @@ $$
 \frac{\partial y}{\partial x}=\frac{\partial y}{\partial u_n}(\frac{\partial u_n}{\partial u_{n-1}}(\cdots(\frac{\partial u_2}{\partial u_1}\frac{\partial u_1}{\partial x})))
 $$
 
+2. 反向传播
+$$
+\frac{\partial y}{\partial x} = (((\frac{\partial y}{\partial u_n}\frac{\partial{u_n}}{\partial u_{n-1}})\cdots)\frac{\partial u_2}{\partial u_1})\frac{\partial u_1}{\partial x}
+$$
 
+### 基本概率论
 
+*大数定律*(law of large numbers): 随着试验次数的增加，估计值会越来越接近真实的潜在概率
