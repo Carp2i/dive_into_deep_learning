@@ -197,6 +197,46 @@ $$
 \frac{\partial{y}}{\partial{x_i}}=\frac{\partial{f}}{\partial{x_i}}=f_{xi}=f_i=D_i f = D_{xi}f.
 $$
 
-![](https://pic.imgdb.cn/item/61a21fe52ab3f51d912b833d.jpg)
+### 梯度 gradient
 
-![](https://pic.imgdb.cn/item/61a2200f2ab3f51d912b9233.jpg)
+设函数 $f: \mathbb{R}^n \to \mathbb{R}$ 的输入是一个$n$维向量 $\mathbf{x}=\left[x_1,x_2,\cdots,x_n\right]^T$, 并且输出是一个标量。
+函数$f(x)$相对于$\mathbf{x}$的梯度是一个包含$n$个偏导数的向量：
+$$
+\nabla_{\mathbf{x}}f(x)=\left[\frac{\partial{f(x)}}{\partial{x_1}},\frac{\partial{f(x)}}{\partial{x_2}},\cdots,\frac{\partial{f(x)}}{\partial{x_n}}\right]^T,
+$$
+$\nabla_{\mathbf{x}}f(x)$通常在没有歧义时被$\nabla f(x)$取代
+
+假设$\mathbf{x}$为$n$维向量，在微分多元函数时经常使用一下规则：
+* 对于所有 $\mathbf{A}\in \mathbb{R}^{m\times n}$, 都有$\nabla_{mathbb{x}}\mathbf{Ax}=\mathbf{A}^T$
+* 对于所有 $\mathbf{A}\in \mathbb{R}^{m\times n}$, 都有$\nabla_{\mathbf{x}}\mathbf{x}^T\mathbf{A}=\mathbf{A}$
+* 对于所有 $\mathbf{A}\in \mathbb{R}^{m\times n}$, 都有$\nabla_{\mathbf{x}}\mathbf{x}^T\mathbf{Ax}=(\mathbf{A}+\mathbf{A}^T)\mathbf{x}$
+* $\nabla_{mathbf{x}}\Vert\mathbf{x}\Vert^2=\nabla_{mathbf{x}}\mathbf{x}^T\mathbf{x}=2\mathbf{x}$
+
+同样，对于任何矩阵$\mathbf{X}$，都有$\nabla_{\mathbf{X}}\Vert\mathbf{X}\Vert^2_F=2\mathbf{X}$ (这里的表达式比较重要)
+
+### Chain Rule
+深度学习中，多元函数通常是 *复合*(composite)的
+
+假设函数 $y=f(u)$ 和 $u=g(x)$ 都是可微的，根据链式法则：
+$$
+\frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}
+$$
+更一般的场合：
+$$
+\frac{dy}{dx_i}=\frac{dy}{du_1}+\frac{dy}{du_2}\frac{du_2}{dx_i}+\cdots+\frac{dy}{du_m}\frac{du_m}{dx_i}
+$$
+
+### AutoML
+
+* 链式法则:
+$$
+\frac{\partial y}{\partial x}=\frac{\partial y}{\partial u_n}\frac{\partial u_n}{\partial_{n-1}}\cdots\frac{\partial u_2}{\partial u_1}\frac{\partial u_1}{\partial x}
+$$
+
+1. 正向累计：
+$$
+\frac{\partial y}{\partial x}=\frac{\partial y}{\partial u_n}(\frac{\partial u_n}{\partial u_{n-1}}(\cdots(\frac{\partial u_2}{\partial u_1}\frac{\partial u_1}{\partial x})))
+$$
+
+
+
