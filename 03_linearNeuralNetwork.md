@@ -278,3 +278,16 @@ $$
 **交叉熵**是分配的概率真正匹配数据生成过程时的 *预期惊异*(expected surprisal)
 
 ![](https://pic.imgdb.cn/item/61a4bdd42ab3f51d91988f11.jpg)
+
+
+### 重新审视Softmax的实现
+
+![](https://pic.imgdb.cn/item/61a5aa382ab3f51d91b508a5.jpg)
+
+$$
+\begin{aligned}
+\log (\hat{y}_j) &= \log{\left(\frac{\exp(o_j)}{\sum_k\exp(o_k)} \right)} \\
+& =\log(\exp(o_j))-\log(\sum_k\exp(o_k))\\
+&=o_j -\log{\left(\sum_k\exp(o_k)\right)}
+\end{aligned}
+$$
